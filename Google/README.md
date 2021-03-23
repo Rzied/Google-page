@@ -1,4 +1,4 @@
-# Quasar App (google)
+# Quasar App (test2)
 
 A Quasar Framework app
 
@@ -12,10 +12,6 @@ npm install
 quasar dev
 ```
 
-### Lint the files
-```bash
-npm run lint
-```
 
 ### Build the app for production
 ```bash

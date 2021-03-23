@@ -1,91 +1,117 @@
 <template>
-  <!-- <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
-  </q-page> -->
-  
-  <div class="">
-    <div class="row">
-      <div style="flex: 2;"></div>
-      <div style="flex: 2.3;">
-        <img src="./imgg.png" alt="">
-      </div>
-      <div style="flex: 2;"></div>
-    </div>
-    <div style="justify-content: center;" class="row">
-
-      <q-input style="flex:0.35;" rounded outlined v-model="text" >
-        <template v-slot:prepend>
-          <q-icon name="search" />
-        </template>
-      </q-input>    
-    </div>
-    <div style="justify-content: center;margin-top: 35px;" class="row">
-      <div><q-btn flat class="btng" label="Recherche Google" /></div>
+  <q-layout class="column q-pa-md">
+    <q-toolbar>
+      <q-toolbar-title></q-toolbar-title>
+      <div><a href="" class="">Gmail </a></div>
       <div class="mini"></div>
-      <div><q-btn flat class="btng" label="J'ai de la chance" /></div>
-    </div>
-       <div class="vide"></div>
-  </div>
-  
-  
+      <div><a href="#">Images</a></div>
+      <q-btn flat round dense icon="apps" class="appsIcon" />
+      <div>
+        <q-btn
+          style="text-transform: none !important"
+          align="right"
+          class="btn-fixed-width"
+          color="primary"
+          label="Connexion"
+        />
+      </div>
+    </q-toolbar>
+    <q-page
+      style="min-height: 580px"
+      class="flex justify-center column q-pa-md"
+    >
+      <div class="q-pa-md">
+        <div class="flex flex-center">
+          <q-img style="max-width: 350px" src="./google.png" />
+        </div>
+        <div class="flex justify-center row">
+          <div style="max-width: 750px" class="col-12 col-sm-10 q-pa-md">
+            <q-input rounded outlined v-model="text">
+              <template v-slot:prepend>
+                <q-icon name="search" />
+              </template>
+            </q-input>
+          </div>
+        </div>
+
+        <div class="row justify-center">
+          <div class="bbtn">
+            <q-btn no-caps flat class="btng" label="Recherche Google" />
+          </div>
+
+          <div class="mini"></div>
+          <div class="bbtn">
+            <q-btn no-caps flat class="btng" label="J'ai de la chance" />
+          </div>
+        </div>
+      </div>
+    </q-page>
+
+    <q-footer class="color">
+      <q-toolbar class="column bg-accent q-pa-md">
+        <div style="width: 100%" class="flex justify-start">
+          <div>France</div>
+          <q-separator style="width: 100%" color="dark" />
+        </div>
+        <div
+          style="width: 100%; text-align: center"
+          class="row justify-between"
+        >
+          <div class="col-12 col-md-5 justify-between" style="">
+            <div class="row justify-between">
+              <div><a href="">À propos</a></div>
+              <div><a href="">Publicité</a></div>
+              <div><a href="">Entreprise</a></div>
+              <div><a href="">Comment fonctionne la recherche Google ?</a></div>
+            </div>
+          </div>
+          <div style="" class="col-12 col-md-3 justify-center">
+            Neutre en carbone depuis 2007
+          </div>
+          <div class="col-12 col-md-4 justify-between" style="">
+            <div class="row justify-between">
+              <div class="">Info consommateurs</div>
+              <div class="">Confidentialité</div>
+              <div class="">Conditions</div>
+              <div class="">Paramètres</div>
+            </div>
+          </div>
+        </div>
+      </q-toolbar>
+    </q-footer>
+  </q-layout>
 </template>
 
-<script lang="ts">
-
-// import { Todo, Meta } from 'components/models'
-// import ExampleComponent from 'components/CompositionComponent.vue'
-// import { defineComponent, ref } from '@vue/composition-api'
-
-// export default defineComponent({
-//   name: 'PageIndex',
-//   components: { ExampleComponent },
-//   setup () {
-//     const todos = ref<Todo[]>([
-//       {
-//         id: 1,
-//         content: 'ct1'
-//       },
-//       {
-//         id: 2,
-//         content: 'ct2'
-//       },
-//       {
-//         id: 3,
-//         content: 'ct3'
-//       },
-//       {
-//         id: 4,
-//         content: 'ct4'
-//       },
-//       {
-//         id: 5,
-//         content: 'ct5'
-//       }
-//     ])
-//     const meta = ref<Meta>({
-//       totalCount: 1200
-//     })
-//     return { todos, meta }
-//   }
-// })
+<script>
+export default {
+  name: "PageIndex",
+};
 </script>
+
 <style lang="scss">
-.vide{
-  height: 332px;
+.mini {
+  flex: 0.02;
 }
-.mini{
-  flex:0.01;
+.appsIcon {
+  margin: 2px 15px;
 }
-.btng{
+.bbtn {
   text-transform: none !important;
   font-weight: 300;
   color: black;
-  background-color: #F8F9FA;
+  background-color: #f8f9fa;
 }
-
+a {
+  text-decoration: none;
+  color: unset;
+}
+a:hover {
+  text-decoration: black underline !important;
+}
+q-toolbar {
+  background-color: #fefefe !important;
+}
+.color {
+  color: #a8a8a8;
+}
 </style>

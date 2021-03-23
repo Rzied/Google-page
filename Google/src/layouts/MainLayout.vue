@@ -1,74 +1,51 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header >
-      <q-toolbar 
-          style="background-color:white; color:black">
-        
+      <q-toolbar class="bg-white">
+        <q-btn
+        <q-toolbar-title>
+        </q-toolbar-title>
+        <a href="" class="footElment">Gmail </a>
+        <q-btn flat round dense icon="apps" class="appIcon" />
+        <a class="myAccount">M</a>
 
         <q-toolbar-title>
-  
+          Quasar App
         </q-toolbar-title>
-          <div><a href="#">Gmail</a></div>
-          <div style="flex:0.03"></div>
-          <div><a href="#">Images</a></div>
-          <div style="flex:0.03"></div>
-          <div style="flex: 0.02;">
-            <img class="icone" src="./grid.png" alt="">
-          </div>
-          <div style="flex:0.03"></div>
-          <div>
-            <q-btn style="text-transform: none !important;" align="right" class="btn-fixed-width" color="primary" label="Connexion" />
-          </div>
 
-        <div>
-        </div>
+        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
-   
+    <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      bordered
+      content-class="bg-grey-1"
+    >
+      <q-list>
+        <q-item-label
+          header
+          class="text-grey-8"
+        >
+          Essential Links
+        </q-item-label>
+        <EssentialLink
+          v-for="link in essentialLinks"
+          :key="link.title"
+          v-bind="link"
+        />
+      </q-list>
+    </q-drawer>
 
-    <q-page-container >
-      
-      
+    <q-page-container>
       <router-view />
     </q-page-container>
-    <div style="background-color:#F2F2F2;color: #6F6F6F;"  class="q-pa-sm footer">
-      <div>France</div>
-      <hr>
-      <div style="padding-top: 10px;" class="row">
-        <div style="flex:0.35;" class="row">
-          <div class="esp"></div>
-          <div style="flex: 0.22;"><a href="#">À propos</a> </div>
-          <div class="esp"></div>
-          <div style="flex: 0.22;"><a href="#">Publicité</a> </div>
-          <div class="esp"></div>
-          <div style="flex: 0.22;"><a href="#">Entreprise</a> </div>
-          <div class="esp"></div>
-          <div style="flex: 1;"><a href="#">Comment fonctionne la recherche Google ?</a> </div>
-        </div>
-        <div style="flex: 0.35;" class="row">
-          <!-- <div style="flex:0.02">
-            <img src="./feuille.jpg" alt="">
-          </div> -->
-          <div style="flex:1;text-align: center;"><a href="#">Neutre en carbone depuis 2007</a> </div>      
-        </div>
-       
-        <div style=" flex: 0.3;" class="row">
-          <div><a href="#">Info consammateurs</a> </div>
-          <div class="esp"></div>
-          <div><a href="#">Confidentialité</a> </div>
-          <div class="esp"></div>
-          <div><a href="#">Conditions</a> </div>
-          <div class="esp"></div>
-          <div><a href="#">Paramètres</a> </div>
-        </div>
-      </div>
-    </div>
   </q-layout>
 </template>
 
-<script lang="ts">
-// import EssentialLink from 'components/EssentialLink.vue'
+<script>
+import EssentialLink from 'components/EssentialLink.vue'
 
 const linksData = [
   {
@@ -113,54 +90,16 @@ const linksData = [
     icon: 'favorite',
     link: 'https://awesome.quasar.dev'
   }
-]
+];
 
-import { defineComponent, ref } from '@vue/composition-api'
-
-export default defineComponent({
+export default {
   name: 'MainLayout',
-  // components: { EssentialLink },
-  setup () {
-    const leftDrawerOpen = ref(false)
-    const essentialLinks = ref(linksData)
-
-    return { leftDrawerOpen, essentialLinks }
+  components: { EssentialLink },
+  data () {
+    return {
+      leftDrawerOpen: false,
+      essentialLinks: linksData
+    }
   }
-})
+}
 </script>
-<style lang="scss">
-img{
-  width: 100%;
-}
-.icone{
-  margin-top: 5px;
-}
-.imgg{
-  flex: 0.2;
-  height:20px;
-}
-// .espb{
-//   justify-content: space-around;
-//   text-align: center;
-//   padding: 10px 200px;
-//   align-items: center;
-// }
-.esp{
-  display:flex;
-  flex:0.18;
-  }
-  hr{
-    color: #F2F2F2
-    
-  }
-  a{
-    text-decoration:none;
-    color: unset;
-  }
-  a:hover{
-    text-decoration: black  underline !important;
-    // border: solid 1px red;
-
-  }
-
-</style>
