@@ -17,7 +17,7 @@
       </div>
     </q-toolbar>
     <q-page
-      style="min-height: 580px"
+      style="min-height: 400px"
       class="flex justify-center column q-pa-md"
     >
       <div class="q-pa-md">
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <div class="row justify-center">
+        <div class="row justify-center q-pa-md">
           <div class="bbtn">
             <q-btn no-caps flat class="btng" label="Recherche Google" />
           </div>
@@ -57,24 +57,25 @@
           style="width: 100%; text-align: center"
           class="row justify-between"
         >
-          <div class="col-12 col-md-5 justify-between" style="">
-            <div class="row justify-between">
+          <div class="col-12 col-md-5 justify-between " style="">
+            <div class="row justify-between q-pa-md">
               <div><a href="">À propos</a></div>
               <div><a href="">Publicité</a></div>
               <div><a href="">Entreprise</a></div>
               <div><a href="">Comment fonctionne la recherche Google ?</a></div>
             </div>
           </div>
-          <div style="" class="col-12 col-md-3 justify-center">
+          <div style="" class="col-12 col-md-3 justify-center q-pa-md">
             Neutre en carbone depuis 2007
           </div>
           <div class="col-12 col-md-4 justify-between" style="">
-            <div class="row justify-between">
+            <div class="row justify-between q-pa-md">
               <div class="">Info consommateurs</div>
               <div class="">Confidentialité</div>
               <div class="">Conditions</div>
               <div class="">Paramètres</div>
             </div>
+            
           </div>
         </div>
       </q-toolbar>
